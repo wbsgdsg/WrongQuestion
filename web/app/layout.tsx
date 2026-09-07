@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import { Geist } from 'next/font/google';
+import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/sonner';
 import { ConsentProvider } from '@/components/cookie-consent/consent-provider';
-import { ConditionalAnalytics } from '@/components/cookie-consent/conditional-analytics';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages, getTranslations } from 'next-intl/server';
 import './globals.css';
@@ -28,12 +27,6 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  display: 'swap',
-  subsets: ['latin'],
-});
-
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -52,7 +45,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
+      <body className="font-sans antialiased">
         <a href="#main-content" className="skip-link">
           {t('skipToMainContent')}
         </a>
@@ -63,14 +56,13 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider locale={locale} messages={rootMessages}>
-            <ConsentProvider>
-              {children}
-              <ConditionalAnalytics />
-            </ConsentProvider>
+            <ConsentProvider>{children}</ConsentProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
         <Toaster />
-        <script
+        <Script
+          id="scrollbar-compensation"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               // Prevent layout shift by ensuring scrollbar space is always reserved

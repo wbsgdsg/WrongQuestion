@@ -59,7 +59,7 @@ const APP_LINKS = [
     iconBg: 'bg-orange-500/10 dark:bg-orange-500/20',
     iconColor: 'text-orange-600 dark:text-orange-400',
   },
-];
+].filter(link => !['/discover', '/insights'].includes(link.href));
 
 function isActivePath(pathname: string | null, href: string) {
   if (!pathname) return false;

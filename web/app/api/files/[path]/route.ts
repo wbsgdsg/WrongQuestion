@@ -180,7 +180,7 @@ export async function GET(
     }
 
     // Return a 302 redirect to the signed URL
-    return NextResponse.redirect(signed.signedUrl, 302);
+    return NextResponse.redirect(new URL(signed.signedUrl, _req.url), 302);
   } catch (error) {
     const { message, status } = handleAsyncError(error);
     console.error('Unexpected error creating signed URL:', error);

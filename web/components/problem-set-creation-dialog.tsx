@@ -250,12 +250,6 @@ export default function ProblemSetCreationDialog({
                 <SelectItem value={ProblemSetSharingLevel.enum.private}>
                   {t('privateLabel')}
                 </SelectItem>
-                <SelectItem value={ProblemSetSharingLevel.enum.limited}>
-                  {t('limitedLabel')}
-                </SelectItem>
-                <SelectItem value={ProblemSetSharingLevel.enum.public}>
-                  {t('publicLabel')}
-                </SelectItem>
               </SelectContent>
             </Select>
           </div>

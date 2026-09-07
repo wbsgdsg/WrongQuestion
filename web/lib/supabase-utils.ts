@@ -3,7 +3,7 @@
  * Consolidates service client creation and common database operations
  */
 
-import { createClient as createSupabaseClient } from '@supabase/supabase-js';
+import { createLocalClient } from './local/client';
 import { ENV_VARS, ERROR_MESSAGES } from './constants';
 
 // =====================================================
@@ -15,25 +15,7 @@ import { ENV_VARS, ERROR_MESSAGES } from './constants';
  * This bypasses RLS (Row Level Security) policies
  */
 export function createServiceClient() {
-  // Validate that service role key exists
-  const serviceRoleKey = process.env[ENV_VARS.SUPABASE_SERVICE_ROLE_KEY];
-  if (!serviceRoleKey) {
-    throw new Error(
-      `${ENV_VARS.SUPABASE_SERVICE_ROLE_KEY} environment variable is not set`
-    );
-  }
-
-  const supabaseUrl = process.env[ENV_VARS.SUPABASE_URL];
-  if (!supabaseUrl) {
-    throw new Error(`${ENV_VARS.SUPABASE_URL} environment variable is not set`);
-  }
-
-  return createSupabaseClient(supabaseUrl, serviceRoleKey, {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
-  });
+  return createLocalClient();
 }
 
 // =====================================================

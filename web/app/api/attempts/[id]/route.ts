@@ -13,7 +13,7 @@ import {
   revalidateProblemAndSubject,
   revalidateUserReviewSchedule,
 } from '@/lib/cache-invalidation';
-import { getUserTimezone } from '@/lib/timezone-utils';
+import { getUserTimezone } from '@/lib/timezone-server';
 import { performErrorCategorisation } from '@/lib/categorise-error';
 
 export async function PATCH(

@@ -15,7 +15,7 @@ import {
 } from '@/lib/cache-invalidation';
 import { updateReviewSchedule } from '@/lib/spaced-repetition';
 import { createServiceClient } from '@/lib/supabase-utils';
-import { getUserTimezone } from '@/lib/timezone-utils';
+import { getUserTimezone } from '@/lib/timezone-server';
 import { performErrorCategorisation } from '@/lib/categorise-error';
 
 async function getAttempts(req: Request) {

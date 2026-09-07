@@ -4,15 +4,12 @@ import { logger } from './logger';
 /**
  * Required environment variables for the application to function
  */
-const REQUIRED_ENV_VARS = [
-  ENV_VARS.SUPABASE_URL,
-  ENV_VARS.SUPABASE_ANON_KEY,
-] as const;
+const REQUIRED_ENV_VARS: string[] = [];
 
 /**
  * Optional environment variables (used for enhanced functionality)
  */
-const OPTIONAL_ENV_VARS = [ENV_VARS.SUPABASE_SERVICE_ROLE_KEY] as const;
+const OPTIONAL_ENV_VARS: string[] = [];
 
 /**
  * Validates that all required environment variables are set
@@ -55,8 +52,7 @@ export function validateEnvironmentVariables(): boolean {
  * Quick check for required environment variables
  * This should only be used in server-side code (middleware, API routes, server components)
  */
-export const hasEnvVars =
-  process.env[ENV_VARS.SUPABASE_URL] && process.env[ENV_VARS.SUPABASE_ANON_KEY];
+export const hasEnvVars = true;
 
 /**
  * Gets an environment variable value with runtime validation

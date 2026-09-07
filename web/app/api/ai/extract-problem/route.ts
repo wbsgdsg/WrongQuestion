@@ -10,7 +10,7 @@ import {
 } from '@/lib/common-utils';
 import { AI_CONSTANTS, CONTENT_LIMIT_CONSTANTS } from '@/lib/constants';
 import { checkAndIncrementQuota } from '@/lib/usage-quota';
-import { getUserTimezone } from '@/lib/timezone-utils';
+import { getUserTimezone } from '@/lib/timezone-server';
 
 const RequestSchema = z.object({
   image: z.string().min(1),

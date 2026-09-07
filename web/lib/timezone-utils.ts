@@ -6,8 +6,6 @@
  * timezone is missing or invalid.
  */
 
-import { createServiceClient } from './supabase-utils';
-
 export const DEFAULT_TIMEZONE = 'UTC';
 
 // =====================================================
@@ -148,18 +146,3 @@ export function getLocalMidnightAfterDays(
  * Look up the timezone for a user from `user_profiles`.
  * Falls back to 'UTC' on any error or missing value.
  */
-export async function getUserTimezone(userId: string): Promise<string> {
-  try {
-    const supabase = createServiceClient();
-    const { data, error } = await supabase
-      .from('user_profiles')
-      .select('timezone')
-      .eq('id', userId)
-      .single();
-
-    if (error || !data?.timezone) return DEFAULT_TIMEZONE;
-    return isValidTimezone(data.timezone) ? data.timezone : DEFAULT_TIMEZONE;
-  } catch {
-    return DEFAULT_TIMEZONE;
-  }
-}

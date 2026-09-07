@@ -4,7 +4,7 @@ import { getAllContentLimits } from '@/lib/content-limits';
 import { getQuotaUsage } from '@/lib/usage-quota';
 import { USAGE_QUOTA_CONSTANTS } from '@/lib/constants';
 import { createApiSuccessResponse } from '@/lib/common-utils';
-import { getUserTimezone } from '@/lib/timezone-utils';
+import { getUserTimezone } from '@/lib/timezone-server';
 
 export async function GET() {
   try {

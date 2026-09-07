@@ -18,8 +18,8 @@ import {
  */
 export async function revalidateUserSubjects(userId: string): Promise<void> {
   const userSubjectsTag = createUserCacheTag(CACHE_TAGS.USER_SUBJECTS, userId);
-  await revalidateTag(userSubjectsTag, 'max');
-  await revalidateTag(CACHE_TAGS.SUBJECTS, 'max');
+  await revalidateTag(userSubjectsTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.SUBJECTS, { expire: 0 });
 }
 
 /**
@@ -27,8 +27,8 @@ export async function revalidateUserSubjects(userId: string): Promise<void> {
  */
 export async function revalidateUserProblems(userId: string): Promise<void> {
   const userProblemsTag = createUserCacheTag(CACHE_TAGS.USER_PROBLEMS, userId);
-  await revalidateTag(userProblemsTag, 'max');
-  await revalidateTag(CACHE_TAGS.PROBLEMS, 'max');
+  await revalidateTag(userProblemsTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.PROBLEMS, { expire: 0 });
 }
 
 /**
@@ -41,8 +41,8 @@ export async function revalidateSubjectProblems(
     CACHE_TAGS.PROBLEMS,
     subjectId
   );
-  await revalidateTag(subjectProblemsTag, 'max');
-  await revalidateTag(CACHE_TAGS.PROBLEMS, 'max');
+  await revalidateTag(subjectProblemsTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.PROBLEMS, { expire: 0 });
 }
 
 /**
@@ -50,8 +50,8 @@ export async function revalidateSubjectProblems(
  */
 export async function revalidateProblem(problemId: string): Promise<void> {
   const problemTag = createProblemCacheTag(CACHE_TAGS.PROBLEMS, problemId);
-  await revalidateTag(problemTag, 'max');
-  await revalidateTag(CACHE_TAGS.PROBLEMS, 'max');
+  await revalidateTag(problemTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.PROBLEMS, { expire: 0 });
 }
 
 /**
@@ -92,8 +92,8 @@ export async function revalidateUserProblemSets(userId: string): Promise<void> {
     CACHE_TAGS.USER_PROBLEM_SETS,
     userId
   );
-  await revalidateTag(userProblemSetsTag, 'max');
-  await revalidateTag(CACHE_TAGS.PROBLEM_SETS, 'max');
+  await revalidateTag(userProblemSetsTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.PROBLEM_SETS, { expire: 0 });
 }
 
 /**
@@ -106,8 +106,8 @@ export async function revalidateProblemSet(
     CACHE_TAGS.PROBLEM_SETS,
     problemSetId
   );
-  await revalidateTag(problemSetTag, 'max');
-  await revalidateTag(CACHE_TAGS.PROBLEM_SETS, 'max');
+  await revalidateTag(problemSetTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.PROBLEM_SETS, { expire: 0 });
 }
 
 /**
@@ -115,8 +115,8 @@ export async function revalidateProblemSet(
  */
 export async function revalidateUserTags(userId: string): Promise<void> {
   const userTagsTag = createUserCacheTag(CACHE_TAGS.USER_TAGS, userId);
-  await revalidateTag(userTagsTag, 'max');
-  await revalidateTag(CACHE_TAGS.TAGS, 'max');
+  await revalidateTag(userTagsTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.TAGS, { expire: 0 });
 }
 
 /**
@@ -124,22 +124,22 @@ export async function revalidateUserTags(userId: string): Promise<void> {
  */
 export async function revalidateSubjectTags(subjectId: string): Promise<void> {
   const subjectTagsTag = createSubjectCacheTag(CACHE_TAGS.TAGS, subjectId);
-  await revalidateTag(subjectTagsTag, 'max');
-  await revalidateTag(CACHE_TAGS.TAGS, 'max');
+  await revalidateTag(subjectTagsTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.TAGS, { expire: 0 });
 }
 
 /**
  * Revalidate admin statistics cache
  */
 export async function revalidateAdminStats(): Promise<void> {
-  await revalidateTag(CACHE_TAGS.ADMIN_STATS, 'max');
+  await revalidateTag(CACHE_TAGS.ADMIN_STATS, { expire: 0 });
 }
 
 /**
  * Revalidate admin users cache
  */
 export async function revalidateAdminUsers(): Promise<void> {
-  await revalidateTag(CACHE_TAGS.ADMIN_USERS, 'max');
+  await revalidateTag(CACHE_TAGS.ADMIN_USERS, { expire: 0 });
 }
 
 /**
@@ -190,8 +190,8 @@ export async function revalidateUserReviewSchedule(
     CACHE_TAGS.USER_REVIEW_SCHEDULE,
     userId
   );
-  await revalidateTag(userReviewTag, 'max');
-  await revalidateTag(CACHE_TAGS.REVIEW_SCHEDULE, 'max');
+  await revalidateTag(userReviewTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.REVIEW_SCHEDULE, { expire: 0 });
   await revalidateUserSubjects(userId);
 }
 
@@ -200,8 +200,8 @@ export async function revalidateUserReviewSchedule(
  */
 export async function revalidateUserStatistics(userId: string): Promise<void> {
   const userStatsTag = createUserCacheTag(CACHE_TAGS.USER_STATISTICS, userId);
-  await revalidateTag(userStatsTag, 'max');
-  await revalidateTag(CACHE_TAGS.STATISTICS, 'max');
+  await revalidateTag(userStatsTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.STATISTICS, { expire: 0 });
 }
 
 /**
@@ -209,8 +209,8 @@ export async function revalidateUserStatistics(userId: string): Promise<void> {
  */
 export async function revalidateUserInsights(userId: string): Promise<void> {
   const userInsightsTag = createUserCacheTag(CACHE_TAGS.USER_INSIGHTS, userId);
-  await revalidateTag(userInsightsTag, 'max');
-  await revalidateTag(CACHE_TAGS.INSIGHTS, 'max');
+  await revalidateTag(userInsightsTag, { expire: 0 });
+  await revalidateTag(CACHE_TAGS.INSIGHTS, { expire: 0 });
 }
 
 /**
@@ -224,14 +224,14 @@ export async function revalidateInsightsPage(): Promise<void> {
  * Revalidate discovery cache (public browse page)
  */
 export async function revalidateDiscovery(): Promise<void> {
-  await revalidateTag(CACHE_TAGS.DISCOVERY, 'max');
+  await revalidateTag(CACHE_TAGS.DISCOVERY, { expire: 0 });
 }
 
 /**
  * Revalidate sitemap cache (listed public sets)
  */
 export async function revalidateSitemap(): Promise<void> {
-  await revalidateTag(CACHE_TAGS.SITEMAP, 'max');
+  await revalidateTag(CACHE_TAGS.SITEMAP, { expire: 0 });
 }
 
 /**

@@ -235,12 +235,6 @@ export default function ProblemSetEditDialog({
                 <SelectItem value={ProblemSetSharingLevel.enum.private}>
                   {t('private')} - {t('privateDesc')}
                 </SelectItem>
-                <SelectItem value={ProblemSetSharingLevel.enum.limited}>
-                  {t('limited')} - {t('limitedDesc')}
-                </SelectItem>
-                <SelectItem value={ProblemSetSharingLevel.enum.public}>
-                  {t('public')} - {t('publicDesc')}
-                </SelectItem>
               </SelectContent>
             </Select>
           </div>

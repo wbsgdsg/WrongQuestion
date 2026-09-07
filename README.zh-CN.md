@@ -1,3 +1,5 @@
+> **当前工作区已改为个人服务器版：SQLite 保存数据、磁盘保存附件、单个密码进入。无需 Supabase。请先阅读 [个人版运行与部署说明](LOCAL-DEPLOYMENT.md)。下面是上游项目的原始介绍。**
+
 <p align="center">
   <img src="web/public/W_logo.svg" alt="Wrong Question Notebook" width="120">
 </p>
@@ -216,3 +218,4 @@ npm run prepush
 ## 许可证
 
 本项目基于 GPL-3.0 许可证发布。详情请参见 [LICENSE](LICENSE)。
+

@@ -14,7 +14,7 @@ import {
   USAGE_QUOTA_CONSTANTS,
 } from '@/lib/constants';
 import { checkAndIncrementQuota } from '@/lib/usage-quota';
-import { getUserTimezone } from '@/lib/timezone-utils';
+import { getUserTimezone } from '@/lib/timezone-server';
 import { normaliseTopicLabel } from '@/lib/insights-utils';
 import { logger } from '@/lib/logger';
 import type {

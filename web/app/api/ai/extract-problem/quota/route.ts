@@ -6,7 +6,7 @@ import {
   createApiSuccessResponse,
 } from '@/lib/common-utils';
 import { getQuotaUsage } from '@/lib/usage-quota';
-import { getUserTimezone } from '@/lib/timezone-utils';
+import { getUserTimezone } from '@/lib/timezone-server';
 
 async function getQuota() {
   const { user } = await requireUser();

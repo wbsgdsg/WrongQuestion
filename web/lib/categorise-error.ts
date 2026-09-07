@@ -3,7 +3,7 @@ import { ERROR_CATEGORY_VALUES, USAGE_QUOTA_CONSTANTS } from '@/lib/constants';
 import { createServiceClient } from '@/lib/supabase-utils';
 import { normaliseTopicLabel } from '@/lib/insights-utils';
 import { checkAndIncrementQuota } from '@/lib/usage-quota';
-import { getUserTimezone } from '@/lib/timezone-utils';
+import { getUserTimezone } from '@/lib/timezone-server';
 import type { AnswerConfig } from '@/lib/types';
 
 const RESPONSE_SCHEMA = {

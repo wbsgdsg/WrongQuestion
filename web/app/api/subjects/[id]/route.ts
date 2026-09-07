@@ -8,6 +8,7 @@ import {
 import { ERROR_MESSAGES } from '@/lib/constants';
 import { UpdateSubjectDto } from '@/lib/schemas';
 import { revalidateUserSubjects } from '@/lib/cache-invalidation';
+import { deleteProblemFiles } from '@/lib/storage/delete';
 
 export async function PATCH(
   req: Request,
@@ -84,6 +85,11 @@ export async function DELETE(
 
   try {
     const { id } = await params;
+    const { data: ownedProblems } = await supabase
+      .from('problems')
+      .select('id')
+      .eq('subject_id', id)
+      .eq('user_id', user.id);
     const { error } = await supabase
       .from('subjects')
       .delete()
@@ -101,6 +107,8 @@ export async function DELETE(
       );
     }
 
+    for (const problem of ownedProblems || [])
+      await deleteProblemFiles(supabase, user.id, problem.id);
     // Invalidate cache after successful deletion
     await revalidateUserSubjects(user.id);
 

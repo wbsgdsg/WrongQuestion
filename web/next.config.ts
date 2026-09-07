@@ -4,6 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const nextConfig: NextConfig = {
+  outputFileTracingExcludes: { '/*': ['./data/**/*'] },
   // Enable experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react'],

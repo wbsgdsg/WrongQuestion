@@ -8,7 +8,7 @@ import {
   CACHE_TAGS,
   createUserCacheTag,
 } from '@/lib/cache-config';
-import { getUserTimezone } from '@/lib/timezone-utils';
+import { getUserTimezone } from '@/lib/timezone-server';
 import type {
   StatisticsData,
   StatisticsOverview,

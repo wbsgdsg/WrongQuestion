@@ -56,6 +56,6 @@ async function loadSubjects() {
 
 export default async function SubjectsPage() {
   const { data } = await loadSubjects();
-
+  console.log("笔记代码被打开了");
   return <SubjectsPageClient initialSubjects={data} />;
 }
